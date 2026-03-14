@@ -14,6 +14,15 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/cib_apple.svg
+  String get cibApple => 'assets/images/cib_apple.svg';
+
+  /// File path: assets/images/fluent_eye-20-filled.svg
+  String get fluentEye20Filled => 'assets/images/fluent_eye-20-filled.svg';
+
+  /// File path: assets/images/google_ic.svg
+  String get googleIc => 'assets/images/google_ic.svg';
+
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -26,7 +35,10 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/welcomeBackground.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
+    cibApple,
+    fluentEye20Filled,
+    googleIc,
     splash,
     splashAndroid12,
     welcomeBackground,
