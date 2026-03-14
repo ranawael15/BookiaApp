@@ -7,8 +7,17 @@ void main()async{
   await EasyLocalization.ensureInitialized();
 
   runApp(EasyLocalization(
-      supportedLocales: [Locale('en', 'US'), Locale('de', 'DE')],
+      supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assets/translations', // <-- change the path of the translation files
-      fallbackLocale: Locale('en', 'US'),
+      fallbackLocale: Locale('en'),
       child: BookiaApp()));
 }
+
+
+//flutter pub run easy_localization:generate -S assets/translations -0 lib/gen/translations -o local_keys.g.dart -f keys
+
+//dart run easy_localization:generate -S assets/translations -O lib/gen عشان ازود الكلام للترجمة
+
+//dart run easy_localization:generate -S assets/translations -O lib/gen -f keys دة الصح
+
+//dart run build_runner build --delete-conflicting-outputs
