@@ -11,11 +11,12 @@ class CustomTextFormField extends StatefulWidget {
   final String hintText;
   final TextInputType? keyboardType;
   bool isPass;
+  final TextEditingController? controller;
   CustomTextFormField({
     super.key,
     required this.hintText,
     this.keyboardType,
-    this.isPass = false,
+    this.isPass = false, this.controller,
   });
 
   @override
@@ -27,6 +28,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       cursorColor: AppColors.primaryColor,
       obscureText: widget.isPass && isObscure,
       keyboardType: widget.keyboardType,

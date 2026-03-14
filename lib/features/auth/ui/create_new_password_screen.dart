@@ -34,7 +34,9 @@ class CreateNewPasswordScreen extends StatelessWidget {
                 SizedBox(height: 15.h,),
                 CustomTextFormField(hintText: LocaleKeys.confirm_new_password_hint.tr()),
                 SizedBox(height: 38.h,),
-                AppButton(onTap: (){}, text: LocaleKeys.reset_password_btn.tr()),
+                AppButton(onTap: (){
+
+                }, text: LocaleKeys.reset_password_btn.tr()),
                 SizedBox(height: 380.h,),
               ],
             ),

@@ -8,19 +8,35 @@ import 'package:bookia_app/features/auth/ui/register_screen.dart';
 import 'package:bookia_app/features/auth/ui/widgets/sign_in_widget.dart';
 import 'package:bookia_app/features/homeFeature/ui/home_screen.dart';
 import 'package:bookia_app/gen/codegen_loader.g.dart';
+import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../gen/assets.gen.dart';
 
-class LoginScreen extends StatelessWidget {
+
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  var emailContoller = TextEditingController();
+  var passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailContoller.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context)  {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -42,11 +58,13 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 32.h),
                 CustomTextFormField(
+                  controller: emailContoller,
                   hintText: tr(LocaleKeys.enter_email),
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 15.h),
                 CustomTextFormField(
+                  controller: passwordController,
                   hintText: tr(LocaleKeys.enter_password),
                   keyboardType: TextInputType.visiblePassword,
                   isPass: true,
@@ -64,8 +82,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h,),
                 AppButton(onTap:
-                    (){
-                  Navigator.push(context, MaterialPageRoute(builder: (value)=> HomeScreen()));
+                    ()async{
+                  await login();
                 }, text: LocaleKeys.login.tr()),
                 SizedBox(height: 30.h,),
                 Row(
@@ -108,4 +126,17 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+
+   login() async{
+    Dio dio = Dio();
+  final response = await dio.post("https://codingarabic.online/api/login",
+    data: {
+      "email": emailContoller.text,
+      "password": passwordController.text
+    });
+
+  debugPrint(response.data.toString());
+   }
+
 }
