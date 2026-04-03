@@ -1,3 +1,4 @@
+import 'package:bookia_app/core/routes/app_router.dart';
 import 'package:bookia_app/features/welcomeFeature/ui/welcome_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,13 +16,14 @@ class BookiaApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: "DM",
-          scaffoldBackgroundColor: Colors.white
-        ),
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
+        theme: ThemeData(
+            fontFamily: "DM",
+            scaffoldBackgroundColor: Colors.white
+        ),
+        onGenerateRoute: AppRouter().onGenerateRoute,
         home: WelcomeScreen(),
       ),
     );
