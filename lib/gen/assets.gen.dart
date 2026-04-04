@@ -14,6 +14,25 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/Bookmark.svg
+  String get bookmark => 'assets/images/Bookmark.svg';
+
+  /// File path: assets/images/Category.svg
+  String get category => 'assets/images/Category.svg';
+
+  /// File path: assets/images/Frame 24.png
+  AssetGenImage get frame24 =>
+      const AssetGenImage('assets/images/Frame 24.png');
+
+  /// File path: assets/images/Home.svg
+  String get home => 'assets/images/Home.svg';
+
+  /// File path: assets/images/Profile.svg
+  String get profile => 'assets/images/Profile.svg';
+
+  /// File path: assets/images/Successmark.svg
+  String get successmark => 'assets/images/Successmark.svg';
+
   /// File path: assets/images/cib_apple.svg
   String get cibApple => 'assets/images/cib_apple.svg';
 
@@ -36,6 +55,12 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+    bookmark,
+    category,
+    frame24,
+    home,
+    profile,
+    successmark,
     cibApple,
     fluentEye20Filled,
     googleIc,

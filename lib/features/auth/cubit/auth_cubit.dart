@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bookia_app/features/auth/data/repo/auth_repo.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_state.dart';
@@ -6,7 +7,24 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  login(){
+ Future<void> login({required String email, required String password}) async{
+    emit(AuthLoadingState());
+      final response = await AuthRepo.login(email: email, password: password);
+      if(response){
+        emit(AuthSuccessState());
+      }else{
+        emit(AuthErrorState());
+      }
+  }
 
+
+  Future<void> register({required String name,required String email, required String password, required String confirmPassword}) async{
+    emit(AuthLoadingState());
+    final response = await AuthRepo.register(name: name, email: email, password: password, confirmPassword: confirmPassword);
+    if(response){
+      emit(AuthSuccessState());
+    }else{
+      emit(AuthErrorState());
+    }
   }
 }
