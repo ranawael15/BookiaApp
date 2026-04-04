@@ -9,4 +9,3 @@ final class AuthErrorState extends AuthState {}
 final class AuthLoadingState extends AuthState {}
 
 
-//Register

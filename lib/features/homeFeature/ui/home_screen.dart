@@ -1,3 +1,4 @@
+import 'package:bookia_app/features/wishList/ui/widgets/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,6 +6,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return
+      SafeArea(
+        child: Column(
+          children: [
+            HomeAppBar(),
+        ],
+        ),
+      );
   }
 }
